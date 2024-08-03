@@ -1,0 +1,16 @@
+---
+import Head from '@/components/Head.astro';
+import Header from '@/components/Header.astro';
+import { defaultSeoTags } from '@/site-config';
+
+const { seo } = Astro.props;
+---
+<html lang={ defaultSeoTags.lang }>
+  <Head seo={ seo } />
+  <body style="background-image: url(/img/37bg.gif)" class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8">
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

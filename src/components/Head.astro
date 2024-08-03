@@ -1,0 +1,21 @@
+---
+import type { SeoTags } from '@/types';
+import { defaultSeoTags } from '@/site-config';
+import "../styles/global.css";
+
+const { seo } = Astro.props as { seo: SeoTags };
+const title = (seo.title) ? seo.title + ' - ' +  defaultSeoTags.title: defaultSeoTags.title;
+const description = (seo.description) ?? defaultSeoTags.description;
+const favicon = (seo.favicon) ?? defaultSeoTags.favicon;
+---
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href={favicon} />
+  <meta name="viewport" content="width=device-width" />
+  <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content={description} name="description" />
+  <meta content={defaultSeoTags.author} name="author" />
+  <meta content="" name="theme-color" />
+  <title>{title}</title>
+</head>
