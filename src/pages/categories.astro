@@ -1,7 +1,22 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro'
-const name = 'Categories'
+import { getCategories } from '@/data/getCategories';
+import type { Category } from '@/types';
+let categories: Category[] = [];
+try {
+  categories = await getCategories();
+	
+} catch (error) {
+  console.error('Http error (categories):', error);
+	
+}
 ---
 <MainLayout seo={{ title: "Categories" }}>
-	<h1>Hello, page { name }</h1>
+	<ul>
+		{categories.map(category => (
+			<li><a href={category.slug}> {category.name}</a></li>
+		))}
+	</ul>
+	
+	
 </MainLayout>

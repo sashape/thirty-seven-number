@@ -1,0 +1,30 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getCategories } from '@/data/getCategories';
+import { getPosts } from '@/data/getPosts';
+import type { Category, Post } from '@/types';
+
+
+export async function getStaticPaths() {
+  const categories: Category[] = await getCategories();
+  return categories.map(category => ({
+    params: { slug: category.slug },
+  }));
+}
+const { slug } = Astro.params;
+
+let posts: Post[] = [];
+try {
+  posts = await getPosts();
+	
+} catch (error) {
+  console.error('Http error (categories slug):', error);
+}
+---
+<MainLayout seo={{ title: "Categories" }}>
+	<ul>
+    {posts.map(posts => (
+			<li><a href={posts.slug}> {posts.content}</a></li>
+		))}
+  </ul>
+</MainLayout>

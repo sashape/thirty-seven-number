@@ -20,8 +20,8 @@
       "@/layouts/*": [
         "src/layouts/*"
       ],
-      "@/utils": [
-        "src/utils/index.ts"
+      "@/utils/*": [
+        "src/utils/*"
       ],
       "@/types": [
         "types/index.ts"
