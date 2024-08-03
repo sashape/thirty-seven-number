@@ -1,0 +1,29 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getPosts } from '@/data/getPosts';
+import type { Post } from '@/types';
+
+const { slug } = Astro.params;
+console.log('params', Astro.params);
+
+let post: Post[] = [];
+let content = '';
+let title = '';
+try {
+  const post: Post[] = await getPosts('', slug);
+  if (post.length === 0) {
+    return new Response("Not found", { status: 404 });
+  }
+  post.map(item => {    
+			content = item.content;
+      title = item.title;
+  }
+);
+} catch (error) {
+  console.error('Http error (categories slug):', error);
+}
+---
+<MainLayout seo={{ title: title }}>
+  <h1>{title}</h1>
+  <p> {content}</p>
+</MainLayout>

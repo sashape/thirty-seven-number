@@ -15,16 +15,16 @@ const { slug } = Astro.params;
 
 let posts: Post[] = [];
 try {
-  posts = await getPosts();
+  posts = await getPosts(slug);
 	
 } catch (error) {
   console.error('Http error (categories slug):', error);
 }
 ---
-<MainLayout seo={{ title: "Categories" }}>
+<MainLayout seo={{ title: `Facts in ${slug.charAt(0).toUpperCase() + slug.slice(1)} category` }}>
 	<ul>
     {posts.map(posts => (
-			<li><a href={posts.slug}> {posts.content}</a></li>
+			<li><a href=`/posts/${posts.slug}`> {posts.title}</a></li>
 		))}
   </ul>
 </MainLayout>
