@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -27,7 +27,7 @@
 		--theme-quote: 102deg 100% 86%;
 	}
 	body {
-		font-family: 'Lora', serif;
+		font-family: 'Noto Sans', serif;
   	font-optical-sizing: auto;
   	font-weight: 400;
   	font-style: normal;
@@ -69,5 +69,11 @@
 		.main-content a {
 			@apply text-blue-600;
 		}
+	}
+	.image {
+		@apply mb-4 m-auto;
+	}
+	.image figcaption {
+		@apply text-center text-gray-600;
 	}
 }

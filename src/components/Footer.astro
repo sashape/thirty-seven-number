@@ -1,0 +1,16 @@
+---
+import { defaultSeoTags } from '@/site-config';
+
+const year = new Date().getFullYear();
+---
+<footer
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top font-semibold text-gray-600 dark:text-gray-400 sm:flex-row sm:justify-between sm:text-xs"
+>
+	<div class="me-0 sm:me-4">
+		&copy; { defaultSeoTags.author }
+		{ year }.<span class="inline-block">&nbsp;🚀&nbsp;theme Astro Cactus&nbsp;</span>
+	</div>
+  <a class="px-4 py-2 text-xs sm:py-0 sm:hover:text-textColor sm:hover:underline" target="_blank" href="https://github.com/sashape/thirty-seven-number">
+    contributors
+  </a>
+</footer>
