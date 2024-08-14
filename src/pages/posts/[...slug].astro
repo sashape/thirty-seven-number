@@ -14,7 +14,7 @@ try {
   if (post.length === 0) {
     return new Response("Not found", { status: 404 });
   }
-  post.map(item => {    
+  post.map(item => {
 			content = item.content;
       title = item.title;
   }
@@ -25,5 +25,5 @@ try {
 ---
 <MainLayout seo={{ title: title }}>
   <h1>{title}</h1>
-  <p> {content}</p>
+  <Fragment set:html={content}>
 </MainLayout>

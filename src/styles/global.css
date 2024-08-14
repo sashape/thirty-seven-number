@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,5 +25,49 @@
 		--theme-accent: 159deg 64% 45%;
 		--theme-accent-2: 0deg 0% 93%;
 		--theme-quote: 102deg 100% 86%;
+	}
+	body {
+		font-family: 'Lora', serif;
+  	font-optical-sizing: auto;
+  	font-weight: 400;
+  	font-style: normal;
+	}
+	a {
+    @apply text-base;
+  }
+	a:hover {
+    @apply underline;
+  }
+	h1, h2, h3, h4, h5, h6 {
+    @apply mb-3;
+  }
+	h1 {
+    @apply text-3xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+  h3 {
+    @apply text-xl font-medium;
+  }
+  h4 {
+    @apply font-medium;
+  }
+  p {
+    @apply text-base leading-[1.25] mb-4;
+  }
+	.main-content a {
+    @apply underline;
+    transition: color 0.3s ease;
+  }
+	@media (hover: hover) {
+		.main-content a:hover {
+			@apply text-blue-600;
+		}
+	}
+	@media (hover: none) {
+		.main-content a {
+			@apply text-blue-600;
+		}
 	}
 }

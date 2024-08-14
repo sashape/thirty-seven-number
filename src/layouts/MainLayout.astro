@@ -7,10 +7,18 @@ const { seo } = Astro.props;
 ---
 <html lang={ defaultSeoTags.lang }>
   <Head seo={ seo } />
-  <body style="background-image: url(/img/37bg.gif)" class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8">
+  <body style="background-image: url(/img/37bg.gif)" class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 text-sm font-normal text-textColor antialiased sm:px-8">
     <Header />
-    <main>
+    <main class="main-content">
       <slot />
     </main>
   </body>
 </html>
+
+<style lang="scss">
+  .main-content {
+    & h1 {
+      font-size: 3em;
+    }
+  }
+</style>
